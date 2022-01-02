@@ -40,7 +40,7 @@ You can find the component's design [here](https://www.figma.com/file/aiiSV722Mg
 
 ## Technologies
 
-Technologies that I used to develop this api
+Technologies that I have used to develop this project!
 
 - [ReactJS](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
