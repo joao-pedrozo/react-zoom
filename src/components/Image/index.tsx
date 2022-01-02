@@ -1,5 +1,4 @@
-import React from 'react';
-import { HTMLAttributes, RefObject, useEffect, useState } from 'react';
+import React, { HTMLAttributes, RefObject, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 interface StyleProps {

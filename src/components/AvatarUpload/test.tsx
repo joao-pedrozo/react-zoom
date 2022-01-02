@@ -4,7 +4,7 @@ import 'jest-styled-components';
 import AvatarUpload from '.';
 
 const mockSliderTestId = 'slider-input';
-//eslint-disable-next-line react/display-name
+//eslint-disable-next-line react/display-name,@typescript-eslint/no-explicit-any
 jest.mock('@material-ui/core/Slider', () => (props: any) => {
 	const { id, name, min, max, onChange } = props;
 	return (

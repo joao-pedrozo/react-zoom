@@ -1,6 +1,5 @@
-import React from 'react';
-import { ButtonHTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
+import React, { ButtonHTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
 	background-color: #3d485f;

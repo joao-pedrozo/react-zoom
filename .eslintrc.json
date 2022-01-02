@@ -41,19 +41,17 @@
 			2,
 			{ "extensions": [".js", ".jsx", ".ts", ".tsx"] }
 		],
-		// "prettier/prettier": [
-		// 	"error",
-		// 	{
-		// 		"endOfLine": "auto"
-		// 	}
-		// ],
-		"semi": [2, "always"]
+		"semi": [2, "always"],
+		"@typescript-eslint/no-non-null-assertion": "off"
 	},
 	"settings": {
 		"import/resolver": {
 			"node": {
 				"extensions": [".js", ".jsx", ".ts", ".tsx"]
 			}
+		},
+		"react": {
+			"version": "detect"
 		}
 	}
 }
