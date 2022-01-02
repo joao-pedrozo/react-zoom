@@ -62,9 +62,6 @@ $ git clone https://github.com/joao-pedrozo/react-zoom.git && cd react-zoom
 **Follow the steps below**
 
 ```bash
-# Starting from the project root folder, go to frontend folder
-$ cd react-zoom
-
 # Install the dependencies
 $ yarn
 
