@@ -20,6 +20,32 @@ jest.mock('@material-ui/core/Slider', () => (props: any) => {
 	);
 });
 
+const defaultFile = new File(['file'], 'file.png', { type: 'image/png' });
+
+const expectRenderInsertImageComponent = () => {
+	const insertImageText = screen.getByLabelText('Insert Image');
+	expect(insertImageText).toBeInTheDocument();
+};
+
+const expectRenderCropAndSaveImageComponent = () => {
+	const slider = screen.getByTestId(mockSliderTestId);
+	expect(slider).toBeInTheDocument();
+
+	const saveButton = screen.getByText('Save');
+	expect(saveButton).toBeInTheDocument();
+};
+
+const expectRenderUploadFailedComponent = () => {
+	const errorMessage = screen.getByText('Sorry, the upload failed.');
+	expect(errorMessage).toBeInTheDocument();
+};
+
+const changeFileInput = (file = defaultFile) => {
+	const input = screen.getByTestId('input-file');
+	fireEvent.change(input, { target: { files: [file] } });
+	fireEvent.input(input);
+};
+
 describe('<AvatarUpload />', () => {
 	beforeEach(() => {
 		window.URL.createObjectURL = jest.fn();
@@ -35,48 +61,27 @@ describe('<AvatarUpload />', () => {
 		});
 
 		it('changes the component when image file is uploaded', () => {
-			const file = new File(['file'], 'file.png', { type: 'image/png' });
+			expectRenderInsertImageComponent();
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
+			changeFileInput();
 
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 		});
 
 		it('shows error component when uploaded file is incorrect', () => {
-			const file = new File(['file'], 'file.mp3', { type: 'image/mp3' });
+			const incorrectFile = new File(['file'], 'file.mp3', { type: 'image/mp3' });
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
+			changeFileInput(incorrectFile);
 
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const errorMessage = screen.getByText('Sorry, the upload failed.');
-			expect(errorMessage).toBeInTheDocument();
+			expectRenderUploadFailedComponent();
 		});
 
 		it('allows user to try upload again after uploading incorrect file and clicking on X icon', () => {
-			const file = new File(['file'], 'file.mp3', { type: 'image/mp3' });
+			const incorrectFile = new File(['file'], 'file.mp3', { type: 'image/mp3' });
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
+			changeFileInput(incorrectFile);
 
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const errorMessage = screen.getByText('Sorry, the upload failed.');
-			expect(errorMessage).toBeInTheDocument();
+			expectRenderUploadFailedComponent();
 
 			const XIcon = screen.getByLabelText('XIcon');
 			fireEvent.click(XIcon);
@@ -84,64 +89,32 @@ describe('<AvatarUpload />', () => {
 			const insertImageText2 = screen.getByLabelText('Insert Image');
 			expect(insertImageText2).toBeInTheDocument();
 
-			const file2 = new File(['file'], 'file.png', { type: 'image/png' });
-			const input2 = screen.getByTestId('input-file');
-			fireEvent.change(input2, { target: { files: [file2] } });
-			fireEvent.input(input2);
+			changeFileInput();
 
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 		});
 
 		it('allows user to try upload again after uploading incorrect file and clicking on Try Again', () => {
-			const file = new File(['file'], 'file.mp3', { type: 'image/mp3' });
+			const incorrectFile = new File(['file'], 'file.mp3', { type: 'image/mp3' });
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
+			changeFileInput(incorrectFile);
 
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const errorMessage = screen.getByText('Sorry, the upload failed.');
-			expect(errorMessage).toBeInTheDocument();
+			expectRenderUploadFailedComponent();
 
 			const tryAgain = screen.getByLabelText('Try Again');
 			fireEvent.click(tryAgain);
 
-			const insertImageText2 = screen.getByLabelText('Insert Image');
-			expect(insertImageText2).toBeInTheDocument();
+			expectRenderInsertImageComponent();
 
-			const file2 = new File(['file'], 'file.png', { type: 'image/png' });
-			const input2 = screen.getByTestId('input-file');
-			fireEvent.change(input2, { target: { files: [file2] } });
-			fireEvent.input(input2);
+			changeFileInput();
 
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 		});
 
 		it('allows user to go back to initial state after uploading image', () => {
-			const file = new File(['file'], 'file.png', { type: 'image/png' });
+			changeFileInput();
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
-
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 
 			const XIcon = screen.getByLabelText('XIcon');
 			fireEvent.click(XIcon);
@@ -151,24 +124,15 @@ describe('<AvatarUpload />', () => {
 		});
 
 		it('zooms Image when slider is changed', () => {
-			const file = new File(['file'], 'file.png', { type: 'image/png' });
+			changeFileInput();
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
-
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 
 			const image = screen.getByLabelText('Image');
 
 			expect(image.style.transform).toBe('scale(1)');
+
+			const slider = screen.getByTestId(mockSliderTestId);
 
 			fireEvent.change(slider, {
 				target: { value: 5 },
@@ -178,24 +142,17 @@ describe('<AvatarUpload />', () => {
 		});
 
 		it('displays zoomed image after saving', () => {
-			const file = new File(['file'], 'file.png', { type: 'image/png' });
+			expectRenderInsertImageComponent();
 
-			const insertImageText = screen.getByLabelText('Insert Image');
-			expect(insertImageText).toBeInTheDocument();
+			changeFileInput();
 
-			const input = screen.getByTestId('input-file');
-			fireEvent.change(input, { target: { files: [file] } });
-			fireEvent.input(input);
-
-			const slider = screen.getByTestId(mockSliderTestId);
-			expect(slider).toBeInTheDocument();
-
-			const saveButton = screen.getByText('Save');
-			expect(saveButton).toBeInTheDocument();
+			expectRenderCropAndSaveImageComponent();
 
 			const image = screen.getByLabelText('Image');
 
 			expect(image.style.transform).toBe('scale(1)');
+
+			const slider = screen.getByTestId(mockSliderTestId);
 
 			fireEvent.change(slider, {
 				target: { value: 5 },
@@ -203,14 +160,14 @@ describe('<AvatarUpload />', () => {
 
 			expect(image.style.transform).toBe('scale(1.5)');
 
-			const saveButton2 = screen.getByText('Save');
+			const saveButton = screen.getByText('Save');
 
-			fireEvent.click(saveButton2);
+			fireEvent.click(saveButton);
 
 			expect(image.style.transform).toBe('scale(1.5)');
 
-			const insertImageText2 = screen.getByLabelText('Insert Image');
-			expect(insertImageText2).toBeInTheDocument();
+			const insertImageText = screen.getByLabelText('Insert Image');
+			expect(insertImageText).toBeInTheDocument();
 
 			const image2 = screen.getByLabelText('Image');
 
