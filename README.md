@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+<p align="center">
+    <br />
+    <strong>Avatar Uploader</strong>
+    <br />
+    A React component to upload and crop avatars.
+</p>
+<p align="center">
+    <img alt="Language" src="https://img.shields.io/badge/language-TypeScript-blue" />
+    <img alt="Build" src="https://img.shields.io/badge/build-passing-green" />
+    <img alt="Coverage" src="https://img.shields.io/badge/coverage-100%25-green" />
+    <img alt="Maintainability" src="https://img.shields.io/badge/maintainability-100-green" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Challenge
 
-## Available Scripts
+This challenge consists of creating a React component using Typescript to let users upload and crop avatars.
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+<p align="center">
+    <img src="https://svgshare.com/i/RBA.svg" alt="Croct" width="500"/>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The `<AvatarUpload />` component should allow users to upload images to make it easier for them to recognize key interface elements related to an organization.
 
-### `npm test`
+- It should allow uploading an image by dragging it into the dashed area or clicking on it.
+- Throughout the entire process, the user can click on the "X" icon to cancel and return to the initial state
+- After upload, the user can adjust the image to better fit the circular format. Using a slider, the user can zoom in and out on the image cut out by the circular mask to preview the final result.
+- Clicking on save, the component should display the cropped logo and a button to restart the process. It must also provide some way for parent components to access the resulting image's raw data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We are very focused on code quality, so we expect you to include tests to ensure all requirements are covered.
 
-### `npm run build`
+Feel free to extract out subcomponents, like the slider, as you find necessary. You can also use open-source components available in the community – why reinvent the wheel, right? 😜
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can find the component's design [here](https://www.figma.com/file/aiiSV722MgNFBy0WqgfeQL/Challenges?node-id=1%3A19).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies
 
-### `npm run eject`
+Technologies that I used to develop this api
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Requirements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
 
-## Learn More
+**Clone the project and access the folder**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ git clone https://github.com/joao-pedrozo/react-zoom.git && cd react-zoom
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Follow the steps below**
+
+```bash
+# Starting from the project root folder, go to frontend folder
+$ cd react-zoom
+
+# Install the dependencies
+$ yarn
+
+# Start the client
+$ yarn start
+```
+
+<p align="center">
+   &lt;/&gt; with ❤️ by <a href="https://linkedin.com/in/joão-pedrozo">João Pedrozo</a>
+</p>
