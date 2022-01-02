@@ -28,7 +28,7 @@ const SavedImage = ({
 
   return (
     <div className="content-wrapper">
-      <Image file={imageFile} imgRef={imgRef} />
+      <Image aria-label="Image" file={imageFile} imgRef={imgRef} />
       <LogoInteractInfo inputRef={inputRef} onChangeInput={onChangeInput} />
     </div>
   );

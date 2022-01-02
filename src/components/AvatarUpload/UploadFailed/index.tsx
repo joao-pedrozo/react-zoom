@@ -23,7 +23,7 @@ const TryAgain = styled.a`
   cursor: pointer;
 `;
 
-const CloseArea = styled.div`
+const XIconWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
@@ -37,7 +37,7 @@ const CloseArea = styled.div`
   }
 `;
 
-const CloseIcon = styled.img`
+const XIcon = styled.img`
   width: 12px;
   height: 12px;
 `;
@@ -52,11 +52,13 @@ const UploadFailed = ({ reset }: Props) => {
       <Image error={true} />
       <TextWrapper>
         <UploadFailedTitle>Sorry, the upload failed.</UploadFailedTitle>
-        <TryAgain onClick={reset}>Try again</TryAgain>
+        <TryAgain aria-label="Try Again" onClick={reset}>
+          Try again
+        </TryAgain>
       </TextWrapper>
-      <CloseArea>
-        <CloseIcon src="/close.svg" onClick={reset} />
-      </CloseArea>
+      <XIconWrapper>
+        <XIcon src="/close.svg" onClick={reset} aria-label="XIcon" />
+      </XIconWrapper>
     </div>
   );
 };

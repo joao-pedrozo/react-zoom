@@ -18,12 +18,15 @@ const LogoInteractInfo = ({ inputRef, onChangeInput }: Props) => {
   return (
     <Wrapper>
       <b>Organization Logo</b>
-      <span>Drop the image here or click to browse.</span>
+      <span aria-label="Insert Image">
+        Drop the image here or click to browse.
+      </span>
       <input
         ref={inputRef}
         type="file"
         accept="image/png, image/jpeg, image/jpg"
         onChange={onChangeInput}
+        data-testid="input-file"
       />
     </Wrapper>
   );

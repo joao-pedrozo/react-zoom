@@ -35,7 +35,7 @@ const SaveButtonWrapper = styled.div`
   margin-top: 32px;
 `;
 
-const CloseArea = styled.div`
+const XIconArea = styled.div`
   margin-left: 60px;
   display: flex;
   flex-shrink: 0;
@@ -49,7 +49,7 @@ const CloseArea = styled.div`
   }
 `;
 
-const CloseIcon = styled.img`
+const XIcon = styled.img`
   width: 12px;
   height: 12px;
 `;
@@ -62,17 +62,16 @@ const SelectedImageComponent = ({
   handleSliderChange,
   reset,
 }: Props) => {
-  const memoizedZoom = useMemo(() => zoomLevel, [zoomLevel]);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setZoom(memoizedZoom);
-  }, [memoizedZoom]);
+    setZoom(zoomLevel);
+  }, [zoomLevel]);
 
-  const setZoom = (zoom?: number) => {
+  const setZoom = (zoom: number) => {
     imgRef.current?.style.setProperty(
       "transform",
-      `scale(${zoom ? 1 + zoom / 10 : 1})`
+      `scale(${zoom > 1 ? 1 + zoom / 10 : 1})`
     );
   };
 
@@ -80,7 +79,12 @@ const SelectedImageComponent = ({
 
   return (
     <div className="content-wrapper">
-      <Image error={isErrored} file={imageFile} imgRef={imgRef} />
+      <Image
+        error={isErrored}
+        file={imageFile}
+        imgRef={imgRef}
+        aria-label="Image"
+      />
       <CropArea>
         <CropTitle>Crop</CropTitle>
         <Slider
@@ -88,14 +92,15 @@ const SelectedImageComponent = ({
           onChange={handleSliderChange}
           min={1}
           max={10}
+          aria-label="Slider"
         />
         <SaveButtonWrapper>
           <Button onClick={handleSaveButtonClick}>Save</Button>
         </SaveButtonWrapper>
       </CropArea>
-      <CloseArea>
-        <CloseIcon src="/close.svg" onClick={reset} />
-      </CloseArea>
+      <XIconArea>
+        <XIcon aria-label="XIcon" src="/close.svg" onClick={reset} />
+      </XIconArea>
     </div>
   );
 };

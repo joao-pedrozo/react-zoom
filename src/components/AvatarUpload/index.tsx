@@ -65,29 +65,31 @@ const Home = () => {
   const isFileValid = (file: File) => {
     const validTypes = ["image/jpeg", "image/jpg", "image/png"];
 
-    if (!validTypes.includes(file.type)) return setError(true);
+    if (!file) return false;
 
-    return true;
+    return validTypes.includes(file.type);
   };
 
   const fileDrop = (e: any) => {
     e.preventDefault();
     const file = e.dataTransfer?.files[0];
-    if (file && isFileValid(file)) {
-      setImageFile(file);
-    }
+    updateStatesOnChange(file);
   };
 
-  const onChangeInput = (ev: React.FormEvent<HTMLInputElement>) => {
-    const selectedFile = (ev.target as HTMLInputElement).files?.[0];
-
-    if (selectedFile && isFileValid(selectedFile)) {
-      setImageFile(selectedFile || null);
+  const updateStatesOnChange = (file: File) => {
+    if (file && isFileValid(file)) {
+      setImageFile(file);
       setIsSaved(false);
       setZoomlevel(1);
     }
 
-    setError(!isFileValid);
+    setError(!isFileValid(file));
+  };
+
+  const onChangeInput = (ev: React.FormEvent<HTMLInputElement>) => {
+    const selectedFile = (ev.target as HTMLInputElement).files![0];
+
+    updateStatesOnChange(selectedFile);
   };
 
   const handleSliderChange = (
