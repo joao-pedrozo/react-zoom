@@ -79,12 +79,7 @@ const SelectedImageComponent = ({
 
   return (
     <div className="content-wrapper">
-      <Image
-        error={isErrored}
-        file={imageFile}
-        imgRef={imgRef}
-        aria-label="Image"
-      />
+      <Image error={isErrored} file={imageFile} imgRef={imgRef} />
       <CropArea>
         <CropTitle>Crop</CropTitle>
         <Slider

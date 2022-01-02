@@ -170,17 +170,13 @@ describe("<AvatarUpload />", () => {
 
       const image = screen.getByLabelText("Image");
 
-      expect((image.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1)"
-      );
+      expect(image.style.transform).toBe("scale(1)");
 
       fireEvent.change(slider, {
         target: { value: 5 },
       });
 
-      expect((image.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1.5)"
-      );
+      expect(image.style.transform).toBe("scale(1.5)");
     });
 
     it("displays zoomed image after saving", () => {
@@ -201,34 +197,26 @@ describe("<AvatarUpload />", () => {
 
       const image = screen.getByLabelText("Image");
 
-      expect((image.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1)"
-      );
+      expect(image.style.transform).toBe("scale(1)");
 
       fireEvent.change(slider, {
         target: { value: 5 },
       });
 
-      expect((image.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1.5)"
-      );
+      expect(image.style.transform).toBe("scale(1.5)");
 
       const saveButton2 = screen.getByText("Save");
 
       fireEvent.click(saveButton2);
 
-      expect((image.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1.5)"
-      );
+      expect(image.style.transform).toBe("scale(1.5)");
 
       const insertImageText2 = screen.getByLabelText("Insert Image");
       expect(insertImageText2).toBeInTheDocument();
 
       const image2 = screen.getByLabelText("Image");
 
-      expect((image2.children[0] as HTMLElement).style.transform).toBe(
-        "scale(1.5)"
-      );
+      expect(image2.style.transform).toBe("scale(1.5)");
     });
   });
 });

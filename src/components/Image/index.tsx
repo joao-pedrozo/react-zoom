@@ -59,7 +59,7 @@ const ImageComponent = ({ error, file, imgRef, ...props }: ImageProps) => {
 
   return (
     <Wrapper {...props}>
-      <Image error={error} url={memoizedUrl} ref={imgRef}>
+      <Image error={error} url={memoizedUrl} ref={imgRef} aria-label="Image">
         {error && <WarningIcon src="/warn.svg" />}
       </Image>
     </Wrapper>
