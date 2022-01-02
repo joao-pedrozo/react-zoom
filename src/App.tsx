@@ -1,8 +1,8 @@
-import React from "react";
-import AvatarUpload from "./components/AvatarUpload";
+import React from 'react';
+import AvatarUpload from './components/AvatarUpload';
 
-function App() {
-  return <AvatarUpload />;
-}
+const App = () => {
+	return <AvatarUpload />;
+};
 
 export default App;
