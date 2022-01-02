@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 interface Props {
-  inputRef: any;
+  inputRef?: RefObject<HTMLInputElement>;
   onChangeInput: (ev: React.FormEvent<HTMLInputElement>) => void;
 }
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, DragEvent } from "react";
 import styled, { css } from "styled-components";
 
 import LogoInteractInfo from "./LogoInteractInfo";
@@ -62,7 +62,7 @@ const Home = () => {
     inputRef.current?.click();
   };
 
-  const isFileValid = (file: File) => {
+  const isFileValid = (file?: File) => {
     const validTypes = ["image/jpeg", "image/jpg", "image/png"];
 
     if (!file) return false;
@@ -70,13 +70,13 @@ const Home = () => {
     return validTypes.includes(file.type);
   };
 
-  const fileDrop = (e: any) => {
-    e.preventDefault();
-    const file = e.dataTransfer?.files[0];
+  const fileDrop = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const file = event.dataTransfer?.files[0];
     updateStatesOnChange(file);
   };
 
-  const updateStatesOnChange = (file: File) => {
+  const updateStatesOnChange = (file?: File) => {
     if (file && isFileValid(file)) {
       setImageFile(file);
       setIsSaved(false);
@@ -86,8 +86,8 @@ const Home = () => {
     setError(!isFileValid(file));
   };
 
-  const onChangeInput = (ev: React.FormEvent<HTMLInputElement>) => {
-    const selectedFile = (ev.target as HTMLInputElement).files![0];
+  const onChangeInput = (event: React.FormEvent<HTMLInputElement>) => {
+    const selectedFile = (event.target as HTMLInputElement).files![0];
 
     updateStatesOnChange(selectedFile);
   };
@@ -106,16 +106,16 @@ const Home = () => {
     setIsSaved(false);
   };
 
-  const dragOver = (e: any) => {
-    e.preventDefault();
+  const dragOver = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
   };
 
-  const dragEnter = (e: any) => {
-    e.preventDefault();
+  const dragEnter = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
   };
 
-  const dragLeave = (e: any) => {
-    e.preventDefault();
+  const dragLeave = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
   };
 
   const renderChild = () => {
