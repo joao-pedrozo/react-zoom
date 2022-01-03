@@ -16,6 +16,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src",
+    "commit": "git-cz",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -34,7 +35,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -43,8 +45,61 @@
       "yarn test --findRelatedTests --bail"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "title": "New features",
+          "description": "Add new features"
+        },
+        "fix": {
+          "title": "Fix one ore more bugs",
+          "description": "Bugfix"
+        },
+        "docs": {
+          "title": "Documentation",
+          "description": "Change docs"
+        },
+        "style": {
+          "title": "Code style",
+          "description": "Changes that doesn't affect directly the code logic (white-space, formatation, etc)"
+        },
+        "refactor": {
+          "title": "Refactor",
+          "description": "Refactors a piece of the code"
+        },
+        "perf": {
+          "title": "Perf",
+          "description": "Features that optimizes the app performance"
+        },
+        "test": {
+          "title": "Tests",
+          "description": "Add new tests or fix the existent ones"
+        },
+        "build": {
+          "title": "Build",
+          "description": "Changes that affect the build process or external dependencies (example scopes: webpack, npm)"
+        },
+        "ci": {
+          "title": "CI",
+          "description": "Changes ci's configuration or script"
+        },
+        "chore": {
+          "title": "Tasks",
+          "description": "Other changes that doesn't affect source code or tests"
+        },
+        "revert": {
+          "title": "Revert",
+          "description": "Undo a previous commit"
+        }
+      }
+    }
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
@@ -64,6 +119,7 @@
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "babel-plugin-styled-components": "^2.0.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
@@ -77,6 +133,7 @@
     "jest-styled-components": "^7.0.8",
     "lint-staged": "^12.1.5",
     "prettier": "^2.5.1",
+    "standard-version": "^9.0.0",
     "webpack": "^5.65.0"
   }
 }
