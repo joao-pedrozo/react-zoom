@@ -32,6 +32,17 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-actions": "^6.4.9",
@@ -61,8 +72,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^4.2.5",
     "jest": "^27.4.5",
     "jest-styled-components": "^7.0.8",
+    "lint-staged": "^12.1.5",
     "prettier": "^2.5.1",
     "webpack": "^5.65.0"
   }
