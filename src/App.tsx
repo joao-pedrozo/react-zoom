@@ -2,7 +2,7 @@ import React from 'react';
 import AvatarUpload from './components/AvatarUpload';
 
 const App = () => {
-	return <AvatarUpload />;
+  return <AvatarUpload />;
 };
 
 export default App;
