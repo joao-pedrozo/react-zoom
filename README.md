@@ -11,6 +11,10 @@
     <img alt="Maintainability" src="https://img.shields.io/badge/maintainability-100-green" />
 </p>
 
+<p align="center">
+  <a href="react-zoom.vercel.app"> You can acess the LIVE  version on the project here</a>
+</p>
+
 # Challenge
 
 This challenge consists of creating a React component using Typescript to let users upload and crop avatars.
@@ -40,11 +44,22 @@ You can find the component's design [here](https://www.figma.com/file/aiiSV722Mg
 
 ## Technologies
 
-Technologies that I have used to develop this project!
+### Production techs
 
 - [ReactJS](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
+
+### Quality ensurance/documentation techs
+
+- [Husky](https://typicode.github.io/husky/#/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Lint-staged](https://github.com/okonet/lint-staged)
+- [Commitzen](https://github.com/commitizen/cz-cli)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [Testing Library](https://testing-library.com/)
+- [Storybook](https://storybook.js.org/)
 
 ## Getting started
 
@@ -68,6 +83,18 @@ $ yarn
 # Start the client
 $ yarn start
 ```
+
+Great! Now you can see the project on your browser by acessing http://localhost:3000.
+
+## Commands
+
+- `start`: runs the main application at `localhost:3000`
+- `build`: creates the production build version
+- `storybook`: runs the storybook project at `localhost:6006`
+- `build-storybook`: generates the build version of the storybook project
+- `test`: executes all tests
+- `test:watch`: executes all tests in --watch mode
+- `commit`: runs commitzen to ensure that your commit messages are following the expected standarts
 
 <p align="center">
    &lt;/&gt; with ❤️ by <a href="https://linkedin.com/in/joão-pedrozo">João Pedrozo</a>
