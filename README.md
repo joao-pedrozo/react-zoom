@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="react-zoom.vercel.app" target="_blank"> You can acess the LIVE  version on the project here</a>
+  <a href="https://react-zoom.vercel.app" target="_blank"> You can acess the LIVE  version on the project here</a>
 </p>
 
 # Challenge
