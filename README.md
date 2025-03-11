@@ -4,26 +4,14 @@
     <br />
     A React component to upload and crop avatars.
 </p>
-<p align="center">
-    <img alt="Language" src="https://img.shields.io/badge/language-TypeScript-blue" />
-    <img alt="Build" src="https://img.shields.io/badge/build-passing-green" />
-    <img alt="Coverage" src="https://img.shields.io/badge/coverage-100%25-green" />
-    <img alt="Maintainability" src="https://img.shields.io/badge/maintainability-100-green" />
-</p>
 
 <p align="center">
-  <a href="react-zoom.vercel.app"> You can acess the LIVE  version on the project here</a>
+  <a href="react-zoom.vercel.app" target="_blank"> You can acess the LIVE  version on the project here</a>
 </p>
 
 # Challenge
 
 This challenge consists of creating a React component using Typescript to let users upload and crop avatars.
-
-<br/>
-
-<p align="center">
-    <img src="https://svgshare.com/i/RBA.svg" alt="Croct" width="500"/>
-</p>
 
 ## Requirements
 
