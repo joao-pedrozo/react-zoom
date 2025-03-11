@@ -13,6 +13,8 @@
 
 This challenge consists of creating a React component using Typescript to let users upload and crop avatars.
 
+![{9DCEAC9D-65CB-4DEC-B1D4-CC9524544677}](https://github.com/user-attachments/assets/e7f8a2a2-7764-432e-87cf-116cd2e1f254)
+
 ## Requirements
 
 The `<AvatarUpload />` component should allow users to upload images to make it easier for them to recognize key interface elements related to an organization.
